@@ -23,7 +23,8 @@ message DeviceMetrics {
   optional float voltage = 2;
 
   /*
-   * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
+   * Utilization for the current channel, including well formed TX, RX and
+   * malformed RX (aka noise).
    */
   optional float channel_utilization = 3;
 
@@ -63,23 +64,27 @@ message EnvironmentMetrics {
   optional float gas_resistance = 4;
 
   /*
-   * Voltage measured (To be depreciated in favor of PowerMetrics in Meshtastic 3.x)
+   * Voltage measured (To be depreciated in favor of PowerMetrics in
+   * Meshtastic 3.x)
    */
   optional float voltage = 5;
 
   /*
-   * Current measured (To be depreciated in favor of PowerMetrics in Meshtastic 3.x)
+   * Current measured (To be depreciated in favor of PowerMetrics in
+   * Meshtastic 3.x)
    */
   optional float current = 6;
 
-  /* 
+  /*
    * relative scale IAQ value as measured by Bosch BME680 . value 0-500.
-   * Belongs to Air Quality but is not particle but VOC measurement. Other VOC values can also be put in here.
+   * Belongs to Air Quality but is not particle but VOC measurement. Other VOC
+   * values can also be put in here.
    */
   optional uint32 iaq = 7;
 
   /*
-   * RCWL9620 Doppler Radar Distance Sensor, used for water level detection. Float value in mm.
+   * RCWL9620 Doppler Radar Distance Sensor, used for water level detection.
+   * Float value in mm.
    */
   optional float distance = 8;
 
@@ -89,7 +94,8 @@ message EnvironmentMetrics {
   optional float lux = 9;
 
   /*
-   * VEML7700 high accuracy white light(irradiance) not calibrated digital 16-bit resolution sensor.
+   * VEML7700 high accuracy white light(irradiance) not calibrated digital
+   * 16-bit resolution sensor.
    */
   optional float white_lux = 10;
 
@@ -130,20 +136,19 @@ message EnvironmentMetrics {
   optional float wind_lull = 17;
 
   /*
-  * Radiation in µR/h
-  */
+   * Radiation in µR/h
+   */
   optional float radiation = 18;
 
   /*
-  * Rainfall in the last hour in mm
-  */
+   * Rainfall in the last hour in mm
+   */
   optional float rainfall_1h = 19;
 
-    /*
-  * Rainfall in the last 24 hours in mm
-  */
+  /*
+   * Rainfall in the last 24 hours in mm
+   */
   optional float rainfall_24h = 20;
-
 }
 
 /*
@@ -244,7 +249,7 @@ message AirQualityMetrics {
    * 10.0um Particle Count
    */
   optional uint32 particles_100um = 12;
-  
+
   /*
    * 10.0um Particle Count
    */
@@ -260,7 +265,8 @@ message LocalStats {
    */
   uint32 uptime_seconds = 1;
   /*
-   * Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
+   * Utilization for the current channel, including well formed TX, RX and
+   * malformed RX (aka noise).
    */
   float channel_utilization = 2;
   /*
@@ -272,7 +278,7 @@ message LocalStats {
    * Number of packets sent
    */
   uint32 num_packets_tx = 4;
-  
+
   /*
    * Number of packets received (both good and bad)
    */
@@ -294,19 +300,22 @@ message LocalStats {
   uint32 num_total_nodes = 8;
 
   /*
-   * Number of received packets that were duplicates (due to multiple nodes relaying).
-   * If this number is high, there are nodes in the mesh relaying packets when it's unnecessary, for example due to the ROUTER/REPEATER role.
+   * Number of received packets that were duplicates (due to multiple nodes
+   * relaying). If this number is high, there are nodes in the mesh relaying
+   * packets when it's unnecessary, for example due to the ROUTER/REPEATER role.
    */
   uint32 num_rx_dupe = 9;
 
   /*
-   * Number of packets we transmitted that were a relay for others (not originating from ourselves).
+   * Number of packets we transmitted that were a relay for others (not
+   * originating from ourselves).
    */
   uint32 num_tx_relay = 10;
 
   /*
-   * Number of times we canceled a packet to be relayed, because someone else did it before us.
-   * This will always be zero for ROUTERs/REPEATERs. If this number is high, some other node(s) is/are relaying faster than you.
+   * Number of times we canceled a packet to be relayed, because someone else
+   * did it before us. This will always be zero for ROUTERs/REPEATERs. If this
+   * number is high, some other node(s) is/are relaying faster than you.
    */
   uint32 num_tx_relay_canceled = 11;
 }
@@ -314,7 +323,7 @@ message LocalStats {
 /*
  * Health telemetry metrics
  */
- message HealthMetrics {
+message HealthMetrics {
   /*
    * Heart rate (beats per minute)
    */
@@ -329,6 +338,39 @@ message LocalStats {
    * Body temperature in degrees Celsius
    */
   optional float temperature = 3;
+}
+
+/*
+ * Error rate reporting from a device over the mesh
+ */
+message ErrorMetrics {
+  /*
+   * How often packets collided (percent) over the module's time period
+   */
+  optional float collision_rate = 1;
+
+  /*
+   * How many nodes can be reached (percent) over the module's time period
+   */
+  optional float reachability = 2;
+
+  /*
+   * How many packets contain new data in all packets seen (percent) over the
+   * module's time period
+   */
+  optional float usefulness = 3;
+
+  /*
+   * How long did a packet have to delay on average (ms) over the module's time
+   * period
+   */
+  optional float avg_delay = 4;
+
+  /*
+   * Average air transmit air utilization (percent) over the module's time
+   * period
+   */
+  optional float avg_tx_air_util = 5;
 }
 
 /*
@@ -453,7 +495,8 @@ enum TelemetrySensorType {
   INA3221 = 14;
 
   /*
-   * BMP085/BMP180 High accuracy temperature and pressure (older Version of BMP280)
+   * BMP085/BMP180 High accuracy temperature and pressure (older Version of
+   * BMP280)
    */
   BMP085 = 15;
 
@@ -491,17 +534,18 @@ enum TelemetrySensorType {
    * AMS TSL25911FN RGB Light Sensor
    */
   TSL25911FN = 22;
-  
+
   /*
    * AHT10 Integrated temperature and humidity sensor
    */
   AHT10 = 23;
 
   /*
-   * DFRobot Lark Weather station (temperature, humidity, pressure, wind speed and direction) 
+   * DFRobot Lark Weather station (temperature, humidity, pressure, wind speed
+   * and direction)
    */
   DFROBOT_LARK = 24;
-  
+
   /*
    * NAU7802 Scale Chip or compatible
    */
@@ -523,20 +567,21 @@ enum TelemetrySensorType {
   MAX17048 = 28;
 
   /*
-   * Custom I2C sensor implementation based on https://github.com/meshtastic/i2c-sensor
+   * Custom I2C sensor implementation based on
+   * https://github.com/meshtastic/i2c-sensor
    */
   CUSTOM_SENSOR = 29;
 
   /*
-   * MAX30102 Pulse Oximeter and Heart-Rate Sensor 
+   * MAX30102 Pulse Oximeter and Heart-Rate Sensor
    */
   MAX30102 = 30;
-  
+
   /*
    * MLX90614 non-contact IR temperature sensor
    */
   MLX90614 = 31;
-  
+
   /*
    * SCD40/SCD41 CO2, humidity, temperature sensor
    */
@@ -546,7 +591,7 @@ enum TelemetrySensorType {
    * ClimateGuard RadSens, radiation, Geiger-Muller Tube
    */
   RADSENS = 33;
-  
+
   /*
    * High accuracy current and voltage
    */
@@ -556,7 +601,6 @@ enum TelemetrySensorType {
    * DFRobot Gravity tipping bucket rain gauge
    */
   DFROBOT_RAIN = 35;
-
 }
 
 /*

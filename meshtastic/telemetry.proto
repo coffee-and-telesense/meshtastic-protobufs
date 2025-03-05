@@ -412,6 +412,11 @@ message Telemetry {
      * Health telemetry metrics
      */
     HealthMetrics health_metrics = 7;
+
+    /*
+     * Error telemetry metrics
+     */
+    ErrorMetrics error_metrics = 8;
   }
 }
 

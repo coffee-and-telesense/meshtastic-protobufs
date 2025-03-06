@@ -578,6 +578,16 @@ enum TelemetrySensorType {
    * DFRobot Gravity tipping bucket rain gauge
    */
   DFROBOT_RAIN = 35;
+
+  /*
+   * SCD30 Temperature, Humidity, and CO2
+   */
+  SCD30 = 36;
+
+  /*
+   * AS7265X Spectral Triad spectroscopy sensor
+   */
+  AS7265X = 37;
 }
 
 /*

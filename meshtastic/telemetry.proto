@@ -149,6 +149,11 @@ message EnvironmentMetrics {
    * Rainfall in the last 24 hours in mm
    */
   optional float rainfall_24h = 20;
+
+  /*
+   * Sensor type
+   */
+  optional TelemetrySensorType sensor = 21;
 }
 
 /*
@@ -254,6 +259,11 @@ message AirQualityMetrics {
    * 10.0um Particle Count
    */
   optional uint32 co2 = 13;
+
+  /*
+   * Sensor type
+   */
+  optional TelemetrySensorType sensor = 14;
 }
 
 /*
@@ -606,6 +616,16 @@ enum TelemetrySensorType {
    * DFRobot Gravity tipping bucket rain gauge
    */
   DFROBOT_RAIN = 35;
+
+  /*
+   * SCD30 Temperature, Humidity, and CO2
+   */
+  SCD30 = 36;
+
+  /*
+   * AS7265X Spectral Triad spectroscopy sensor
+   */
+  AS7265X = 37;
 }
 
 /*

@@ -381,6 +381,12 @@ message ErrorMetrics {
    * period
    */
   optional float avg_tx_air_util = 5;
+
+  /*
+   * Time period (ms) for measurements which occur, also the timeout for how
+   * often the module collects and sends data
+   */
+  optional float period = 6;
 }
 
 /*

@@ -17,8 +17,9 @@ message ModuleConfig {
    */
   message MQTTConfig {
     /*
-     * If a meshtastic node is able to reach the internet it will normally attempt to gateway any channels that are marked as
-     * is_uplink_enabled or is_downlink_enabled.
+     * If a meshtastic node is able to reach the internet it will normally
+     * attempt to gateway any channels that are marked as is_uplink_enabled or
+     * is_downlink_enabled.
      */
     bool enabled = 1;
 
@@ -31,22 +32,25 @@ message ModuleConfig {
     /*
      * MQTT username to use (most useful for a custom MQTT server).
      * If using a custom server, this will be honoured even if empty.
-     * If using the default server, this will only be honoured if set, otherwise the device will use the default username
+     * If using the default server, this will only be honoured if set, otherwise
+     * the device will use the default username
      */
     string username = 3;
 
     /*
      * MQTT password to use (most useful for a custom MQTT server).
      * If using a custom server, this will be honoured even if empty.
-     * If using the default server, this will only be honoured if set, otherwise the device will use the default password
+     * If using the default server, this will only be honoured if set, otherwise
+     * the device will use the default password
      */
     string password = 4;
 
     /*
      * Whether to send encrypted or decrypted packets to MQTT.
      * This parameter is only honoured if you also set server
-     * (the default official mqtt.meshtastic.org server can handle encrypted packets)
-     * Decrypted packets may be useful for external systems that want to consume meshtastic packets
+     * (the default official mqtt.meshtastic.org server can handle encrypted
+     * packets) Decrypted packets may be useful for external systems that want
+     * to consume meshtastic packets
      */
     bool encryption_enabled = 5;
 
@@ -62,17 +66,20 @@ message ModuleConfig {
 
     /*
      * The root topic to use for MQTT messages. Default is "msh".
-     * This is useful if you want to use a single MQTT server for multiple meshtastic networks and separate them via ACLs
+     * This is useful if you want to use a single MQTT server for multiple
+     * meshtastic networks and separate them via ACLs
      */
     string root = 8;
 
     /*
-     * If true, we can use the connected phone / client to proxy messages to MQTT instead of a direct connection
+     * If true, we can use the connected phone / client to proxy messages to
+     * MQTT instead of a direct connection
      */
     bool proxy_to_client_enabled = 9;
 
     /*
-     * If true, we will periodically report unencrypted information about our node to a map via MQTT
+     * If true, we will periodically report unencrypted information about our
+     * node to a map via MQTT
      */
     bool map_reporting_enabled = 10;
 
@@ -83,7 +90,8 @@ message ModuleConfig {
   }
 
   /*
-   * Settings for reporting unencrypted information about our node to a map via MQTT
+   * Settings for reporting unencrypted information about our node to a map via
+   * MQTT
    */
   message MapReportSettings {
     /*
@@ -92,7 +100,8 @@ message ModuleConfig {
     uint32 publish_interval_secs = 1;
 
     /*
-     * Bits of precision for the location sent (default of 32 is full precision).
+     * Bits of precision for the location sent (default of 32 is full
+     * precision).
      */
     uint32 position_precision = 2;
   }
@@ -107,7 +116,8 @@ message ModuleConfig {
     bool enabled = 1;
 
     /*
-     * Whether the Module allows consumers to read / write to pins not defined in available_pins
+     * Whether the Module allows consumers to read / write to pins not defined
+     * in available_pins
      */
     bool allow_undefined_pin_access = 2;
 
@@ -133,10 +143,11 @@ message ModuleConfig {
     uint32 update_interval = 2;
 
     /*
-     * Whether in addition to sending it to MQTT and the PhoneAPI, our NeighborInfo should be transmitted over LoRa.
-     * Note that this is not available on a channel with default key and name.
+     * Whether in addition to sending it to MQTT and the PhoneAPI, our
+     * NeighborInfo should be transmitted over LoRa. Note that this is not
+     * available on a channel with default key and name.
      */
-    bool transmit_over_lora = 3; 
+    bool transmit_over_lora = 3;
   }
 
   /*
@@ -289,7 +300,6 @@ message ModuleConfig {
      * BLE RSSI threshold. Defaults to -80
      */
     int32 ble_threshold = 4;
-
   }
 
   /*
@@ -369,8 +379,9 @@ message ModuleConfig {
     Serial_Mode mode = 7;
 
     /*
-     * Overrides the platform's defacto Serial port instance to use with Serial module config settings
-     * This is currently only usable in output modes like NMEA / CalTopo and may behave strangely or not work at all in other modes
+     * Overrides the platform's defacto Serial port instance to use with Serial
+     * module config settings This is currently only usable in output modes like
+     * NMEA / CalTopo and may behave strangely or not work at all in other modes
      * Existing logging over the Serial Console will still be present
      */
     bool override_console_serial_port = 8;
@@ -461,8 +472,9 @@ message ModuleConfig {
     uint32 nag_timeout = 14;
 
     /*
-     * When true, enables devices with native I2S audio output to use the RTTTL over speaker like a buzzer
-     * T-Watch S3 and T-Deck for example have this capability
+     * When true, enables devices with native I2S audio output to use the RTTTL
+     * over speaker like a buzzer T-Watch S3 and T-Deck for example have this
+     * capability
      */
     bool use_i2s_as_buzzer = 15;
   }
@@ -497,7 +509,8 @@ message ModuleConfig {
     uint32 history_return_window = 5;
 
     /*
-     * Set to true to let this node act as a server that stores received messages and resends them upon request.
+     * Set to true to let this node act as a server that stores received
+     * messages and resends them upon request.
      */
     bool is_server = 6;
   }
@@ -600,6 +613,18 @@ message ModuleConfig {
      * Enable/Disable the health telemetry module on-device display
      */
     bool health_screen_enabled = 13;
+
+    /*
+     * Preferences for the Error Telemetry Module
+     * Enable/Disable this telemetry
+     */
+    bool error_measurement_enabled = 14;
+
+    /*
+     * Error metric interval in seconds of how often we should try ot send our
+     * metrics to the mesh
+     */
+    uint32 error_update_interval = 15;
   }
 
   /*
@@ -652,7 +677,8 @@ message ModuleConfig {
     }
 
     /*
-     * Enable the rotary encoder #1. This is a 'dumb' encoder sending pulses on both A and B pins while rotating.
+     * Enable the rotary encoder #1. This is a 'dumb' encoder sending pulses on
+     * both A and B pins while rotating.
      */
     bool rotary1_enabled = 1;
 
@@ -687,7 +713,8 @@ message ModuleConfig {
     InputEventChar inputbroker_event_press = 7;
 
     /*
-     * Enable the Up/Down/Select input device. Can be RAK rotary encoder or 3 buttons. Uses the a/b/press definitions from inputbroker.
+     * Enable the Up/Down/Select input device. Can be RAK rotary encoder or 3
+     * buttons. Uses the a/b/press definitions from inputbroker.
      */
     bool updown1_enabled = 8;
 
@@ -698,7 +725,8 @@ message ModuleConfig {
 
     /*
      * Input event origin accepted by the canned message module.
-     * Can be e.g. "rotEnc1", "upDownEnc1", "scanAndSelect", "cardkb", "serialkb", or keyword "_any"
+     * Can be e.g. "rotEnc1", "upDownEnc1", "scanAndSelect", "cardkb",
+     * "serialkb", or keyword "_any"
      */
     string allow_input_source = 10;
 
@@ -710,7 +738,8 @@ message ModuleConfig {
   }
 
   /*
-     Ambient Lighting Module - Settings for control of onboard LEDs to allow users to adjust the brightness levels and respective color levels.
+     Ambient Lighting Module - Settings for control of onboard LEDs to allow
+     users to adjust the brightness levels and respective color levels.
      Initially created for the RAK14001 RGB LED module.
   */
   message AmbientLightingConfig {

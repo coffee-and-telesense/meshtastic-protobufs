@@ -366,22 +366,27 @@ message ErrorMetrics {
   optional float node_reach = 2;
 
   /*
+   * How many nodes are there total?
+   */
+  optional uint32 num_nodes = 3;
+
+  /*
    * How many packets contain new data in all packets seen (percent) over the
    * module's time period
    */
-  optional float usefulness = 3;
+  optional float usefulness = 4;
 
   /*
    * How long did a packet have to delay on average (ms) over the module's time
    * period
    */
-  optional uint32 avg_delay = 4;
+  optional uint32 avg_delay = 5;
 
   /*
    * Time period (seconds) for measurements which occur, also the timeout for
    * how often the module collects and sends data
    */
-  optional uint32 period = 5;
+  optional uint32 period = 6;
 
   /*
    * TODO: percent or counts of specific routing error messages to get insight

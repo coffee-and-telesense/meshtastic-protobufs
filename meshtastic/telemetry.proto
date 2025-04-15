@@ -389,9 +389,34 @@ message ErrorMetrics {
   optional uint32 period = 6;
 
   /*
-   * TODO: percent or counts of specific routing error messages to get insight
-   * on no routes, etc.
+   * Count of no route errors
    */
+  optional uint32 noroute = 7;
+
+  /*
+   * Count of NAK errors
+   */
+  optional uint32 naks = 8;
+
+  /*
+   * Count of timeout errors
+   */
+  optional uint32 timeouts = 9;
+
+  /*
+   * Count of max retransmit errors
+   */
+  optional uint32 max_retransmit = 10;
+
+  /*
+   * Count of no channel errors
+   */
+  optional uint32 no_channel = 11;
+
+  /*
+   * Count of too large errors
+   */
+  optional uint32 too_large = 12;
 }
 
 /*

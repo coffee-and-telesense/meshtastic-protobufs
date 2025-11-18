@@ -491,11 +491,11 @@ message nodeStats {
   /*
    * 0-100 (>100 means powered)
    */
-  uint32 battery_level = 1;
+  uint32 battery_level = 4;
   /*
    * Last rssi from a the given node
    */
-  int32 rx_rssi = 12;
+  int32 rx_rssi = 5;
 }
 
 /*

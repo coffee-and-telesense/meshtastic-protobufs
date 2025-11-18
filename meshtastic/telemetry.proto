@@ -422,7 +422,7 @@ message ErrorMetrics {
    * An entry for each seen node in the mesh reporting:
    * last heard seconds, number of packets rx'd, last rx rssi, and battery_level
    */
-  repeated nodeStats = 13;
+  repeated nodeStats node_stats = 13;
 }
 
 /*

@@ -417,6 +417,12 @@ message ErrorMetrics {
    * Count of too large errors
    */
   optional uint32 too_large = 12;
+
+  /*
+   * An entry for each seen node in the mesh reporting:
+   * last heard seconds, number of packets rx'd, last rx rssi, and battery_level
+   */
+  optional repeated nodeStats = 13;
 }
 
 /*
@@ -464,6 +470,32 @@ message Telemetry {
      */
     ErrorMetrics error_metrics = 8;
   }
+}
+
+/*
+ * Stats about nodes to send over mesh
+ */
+message nodeStats {
+  /*
+   * The node id we are reporting on
+   */
+  fixed32 node_id = 1;
+  /*
+   * The last time we heard from the node (in seconds)
+   */
+  uint32 last_heard = 2;
+  /*
+   * How many times have we heard from them (packet count)?
+   */
+  uint32 num_packets_rx = 3;
+  /*
+   * 0-100 (>100 means powered)
+   */
+  uint32 battery_level = 1;
+  /*
+   * Last rssi from a the given node
+   */
+  int32 rx_rssi = 12;
 }
 
 /*

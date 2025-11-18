@@ -479,23 +479,23 @@ message nodeStats {
   /*
    * The node id we are reporting on
    */
-  fixed32 node_id = 1;
+  optional fixed32 node_id = 1;
   /*
    * The last time we heard from the node (in seconds)
    */
-  uint32 last_heard = 2;
+  optional uint32 last_heard = 2;
   /*
    * How many times have we heard from them (packet count)?
    */
-  uint32 num_packets_rx = 3;
+  optional uint32 num_packets_rx = 3;
   /*
    * 0-100 (>100 means powered)
    */
-  uint32 battery_level = 4;
+  optional uint32 battery_level = 4;
   /*
    * Last rssi from a the given node
    */
-  int32 rx_rssi = 5;
+  optional int32 rx_rssi = 5;
 }
 
 /*

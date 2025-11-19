@@ -496,6 +496,10 @@ message nodeStats {
    * Last rssi from a the given node
    */
   optional int32 rx_rssi = 5;
+  /*
+   * Last snr from a the given node
+   */
+  optional float snr = 6;
 }
 
 /*

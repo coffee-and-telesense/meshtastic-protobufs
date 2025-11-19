@@ -158,6 +158,11 @@ message NodeInfoLite {
    * Last byte of the node number of the node that should be used as the next hop to reach this node. 
    */
   uint32 next_hop = 12;
+
+  /*
+   * Last rx'd RSSI of this node
+   */
+  optional int32 rssi = 13;
 }
 
 /*

@@ -67,7 +67,7 @@
 *Waypoint.name         max_size:30
 *Waypoint.description  max_size:100
 
-*NeighborInfo.neighbors max_count:10
+*NeighborInfo.neighbors max_count:20
 
 *DeviceMetadata.firmware_version max_size:18
 

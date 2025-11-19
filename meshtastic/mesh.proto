@@ -1863,7 +1863,6 @@ message Neighbor {
 
   /*
    * Reception time (in secs since 1970) of last message that was last sent by this ID.
-   * Note: this is for local storage only and will not be sent out over the mesh.
    */
   fixed32 last_rx_time = 3;
 
@@ -1872,6 +1871,21 @@ message Neighbor {
    * Note: this is for local storage only and will not be sent out over the mesh.
    */
   uint32 node_broadcast_interval_secs = 4;
+
+  /*
+   * Number of packets heard from this node
+   */
+  uint32 num_packets_rx = 5;
+
+  /*
+   * Last RSSI from a given node
+   */
+  int32 rssi = 6;
+
+  /*
+   * 0-100 (>100 means powered)
+   */
+  uint32 battery_level = 7;
 }
 
 /*

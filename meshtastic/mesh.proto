@@ -1881,11 +1881,6 @@ message Neighbor {
    * Last RSSI from a given node
    */
   int32 rssi = 6;
-
-  /*
-   * 0-100 (>100 means powered)
-   */
-  uint32 battery_level = 7;
 }
 
 /*
